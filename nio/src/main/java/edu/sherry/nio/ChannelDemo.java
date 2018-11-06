@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -48,6 +49,10 @@ public class ChannelDemo {
      */
     private static void open() throws IOException, URISyntaxException {
         FileChannel inChannel = FileChannel.open(Paths.get(ChannelDemo.class.getResource("/file/test.txt").toURI()), StandardOpenOption.READ);
-        System.out.println(inChannel);
+        FileChannel outChannel = FileChannel.open(Paths.get("C:\\Users\\Sherry\\Desktop\\open.txt"), StandardOpenOption.CREATE_NEW, StandardOpenOption.WRITE, StandardOpenOption.READ);
+        //  内存映射文件
+        MappedByteBuffer inMapBuffer = inChannel.map(FileChannel.MapMode.READ_ONLY, 0, inChannel.size());
+        MappedByteBuffer outMapBuffer = outChannel.map(FileChannel.MapMode.READ_WRITE, 0, inChannel.size());
+        outMapBuffer.put(inMapBuffer);
     }
 }
