@@ -24,6 +24,7 @@ public class NonBlockServerDemo {
 
             while (iterator.hasNext()) {
                 SelectionKey key = iterator.next();
+                iterator.remove();
                 if (key.isAcceptable()) {           //  可接收
                     //  客户端通道
                     SocketChannel clientChannel = serverChannel.accept();
@@ -37,12 +38,13 @@ public class NonBlockServerDemo {
                         buffer.flip();
                         System.out.println(new String(buffer.array(), 0, length));
                     }
+                    readableChannel.close();
                 } else if (key.isConnectable()) {   //  可连接
 
                 } else if (key.isWritable()) {      //  可写
 
                 }
-                iterator.remove();
+
             }
         }
 
