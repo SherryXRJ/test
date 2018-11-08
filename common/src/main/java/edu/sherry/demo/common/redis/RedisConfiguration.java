@@ -46,7 +46,7 @@ public class RedisConfiguration {
     @Bean
     public ShardedJedisPool shardedJedisPool(JedisPoolConfig jedisPoolConfig, JedisShardInfo jedisShardInfo) {
         List<JedisShardInfo> list = new ArrayList<>();
-        list.add(jedisShardInfo());
+        list.add(jedisShardInfo);
         return new ShardedJedisPool(jedisPoolConfig, list);
     }
 

@@ -1,0 +1,11 @@
+server:
+  port: 7070
+
+spring:
+  application:
+    name: test-customer
+
+eureka:
+  client:
+    serviceUrl.defaultZone: http://localhost:8761/eureka/
+
