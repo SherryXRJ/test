@@ -9,8 +9,8 @@ spring.cloud.config.server.git:
 
 spring.cloud.config:
   label: dev
-  username: sherryxrj@outlook.com
-  password: SHERRYgithub9613
+  username: username
+  password: username
 
 eureka:
   client:
