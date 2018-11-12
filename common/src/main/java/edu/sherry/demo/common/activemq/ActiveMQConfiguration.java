@@ -2,12 +2,12 @@ package edu.sherry.demo.common.activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.pool.PooledConnectionFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.annotation.EnableJms;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
+import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
-
-import java.util.Properties;
 
 
 /**
@@ -15,6 +15,7 @@ import java.util.Properties;
  * http://activemq.apache.org/spring-support.html
  */
 @Configuration
+@EnableJms
 public class ActiveMQConfiguration {
 
     /**
@@ -30,7 +31,15 @@ public class ActiveMQConfiguration {
         return new PooledConnectionFactory(activeMQConnectionFactory);
     }
 
-    @Bean public JmsTemplate jmsTemplate(PooledConnectionFactory pooledConnectionFactory){
+    @Bean
+    public JmsTemplate jmsTemplate(PooledConnectionFactory pooledConnectionFactory){
         return new JmsTemplate(pooledConnectionFactory);
+    }
+
+    @Bean
+    public JmsListenerContainerFactory jmsListenerContainerFactory(ActiveMQConnectionFactory activeMQConnectionFactory){
+        DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
+        defaultJmsListenerContainerFactory.setConnectionFactory(activeMQConnectionFactory);
+        return defaultJmsListenerContainerFactory;
     }
 }
