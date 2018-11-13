@@ -36,10 +36,17 @@ public class ActiveMQConfiguration {
         return new JmsTemplate(pooledConnectionFactory);
     }
 
-    @Bean
-    public JmsListenerContainerFactory jmsListenerContainerFactory(ActiveMQConnectionFactory activeMQConnectionFactory){
+    @Bean JmsListenerContainerFactory queueListenerContainerFactory(ActiveMQConnectionFactory activeMQConnectionFactory){
         DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
         defaultJmsListenerContainerFactory.setConnectionFactory(activeMQConnectionFactory);
+        return defaultJmsListenerContainerFactory;
+    }
+
+    @Bean
+    public JmsListenerContainerFactory topicListenerContainerFactory(ActiveMQConnectionFactory activeMQConnectionFactory){
+        DefaultJmsListenerContainerFactory defaultJmsListenerContainerFactory = new DefaultJmsListenerContainerFactory();
+        defaultJmsListenerContainerFactory.setConnectionFactory(activeMQConnectionFactory);
+        defaultJmsListenerContainerFactory.setPubSubDomain(true);
         return defaultJmsListenerContainerFactory;
     }
 }
