@@ -11,24 +11,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RabbitMQCustomer {
+public class RabbitMQDirectCustomer {
 
     //  支持EL表达式  @RabbitListener(queues = "#{autoDeleteQueue1.name}")
 
     /**
      * 队列1消费者
-     * {@link CustomerConfig#directQueue1()}
+     * {@link DirectCustomerConfig#directQueue1()}
      */
-    @RabbitListener(queues = CustomerConfig.DIRECT_QUEUE_1)
+    @RabbitListener(queues = DirectCustomerConfig.DIRECT_QUEUE_1)
     public void directQueue1Customer(MessageEntry messageEntry){
         System.out.println(messageEntry.toString());
     }
 
     /**
      * 队列2消费者
-     * {@link CustomerConfig#directQueue2()}
+     * {@link DirectCustomerConfig#directQueue2()}
      */
-    @RabbitListener(queues = CustomerConfig.DIRECT_QUEUE_2)
+    @RabbitListener(queues = DirectCustomerConfig.DIRECT_QUEUE_2)
     public void directQueue2Customer(MessageEntry messageEntry){
         System.out.println(messageEntry.toString());
     }
@@ -42,7 +42,7 @@ public class RabbitMQCustomer {
      * <p>绑定queue 和 direct; 指定一个route key到queue1, 其他三个route key到queue2
      */
     @Configuration
-    public static class CustomerConfig {
+    public static class DirectCustomerConfig {
 
         /**
          * direct queue 1

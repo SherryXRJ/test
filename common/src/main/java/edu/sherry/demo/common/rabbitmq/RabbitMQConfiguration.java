@@ -2,6 +2,7 @@ package edu.sherry.demo.common.rabbitmq;
 
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -34,6 +35,9 @@ public class RabbitMQConfiguration {
 
     private final static String DIRECT_EXCHANGE_NAME = "sherry.direct";
 
+    private final static String TOPIC_EXCHANGE_NAME = "sherry.topic";
+
+
     @Bean
     public ConnectionFactory connectionFactory(){
         CachingConnectionFactory factory = new CachingConnectionFactory(host, port);
@@ -63,5 +67,12 @@ public class RabbitMQConfiguration {
         return new DirectExchange(DIRECT_EXCHANGE_NAME);
     }
 
+    /**
+     * Exchange - topic     类似于订阅
+     */
+    @Bean
+    public TopicExchange topic(){
+        return new TopicExchange(TOPIC_EXCHANGE_NAME);
+    }
 
 }
