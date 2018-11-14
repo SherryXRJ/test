@@ -1,6 +1,5 @@
 package edu.sherry.demo.testcustomer.mqcustomer;
 
-import edu.sherry.demo.common.entry.MessageEntry;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;

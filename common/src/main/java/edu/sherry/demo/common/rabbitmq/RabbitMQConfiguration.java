@@ -37,7 +37,7 @@ public class RabbitMQConfiguration {
 
     private final static String TOPIC_EXCHANGE_NAME = "sherry.topic";
 
-
+    private final static String RPC_EXCHANGE_NAME = "sherry.rpc";
     @Bean
     public ConnectionFactory connectionFactory(){
         CachingConnectionFactory factory = new CachingConnectionFactory(host, port);
@@ -75,4 +75,11 @@ public class RabbitMQConfiguration {
         return new TopicExchange(TOPIC_EXCHANGE_NAME);
     }
 
+    /**
+     * RabbitMQ - RPC
+     */
+    @Bean
+    public DirectExchange rpcExchange(){
+        return new DirectExchange(RPC_EXCHANGE_NAME);
+    }
 }
