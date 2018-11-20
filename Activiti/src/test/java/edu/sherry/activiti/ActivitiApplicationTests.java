@@ -2,6 +2,8 @@ package edu.sherry.activiti;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
+import org.activiti.engine.RuntimeService;
+import org.activiti.engine.TaskService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentQuery;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -33,7 +35,7 @@ public class ActivitiApplicationTests {
 	public void deploy() {
         processEngine.getRepositoryService().createDeployment()
         .name("deploy hello world")
-        .addClasspathResource("diagrams/helloWorld.bpmn")
+        .addClasspathResource("diagrams/processVariables.bpmn")
         .deploy();
     }
     /**
@@ -41,9 +43,9 @@ public class ActivitiApplicationTests {
      */
     @Test
     public void start(){
-        ProcessInstance instance = processEngine.getRuntimeService().startProcessInstanceById("helloWordl:1:4");
-        System.out.println(instance.getDeploymentId());
-        System.out.println(instance.getName());
+        ProcessInstance instance = processEngine.getRuntimeService().startProcessInstanceById("processVariables:1:10004");
+        System.out.println(instance.getId());
+        System.out.println(instance.getProcessDefinitionId());
     }
 
     @Test
@@ -62,7 +64,7 @@ public class ActivitiApplicationTests {
     @Test
     public void complete(){
         Map<String, Object> param = new HashMap<>();
-        processEngine.getTaskService().complete("7501");
+        processEngine.getTaskService().complete("20002");
     }
 
     @Test
@@ -74,4 +76,27 @@ public class ActivitiApplicationTests {
         System.out.println(result.getName());
     }
 
+    @Test
+    public void setVariables(){
+        TaskService taskService = processEngine.getTaskService();
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("name", "tom");
+        variables.put("age", "12");
+        variables.put("reason", "something");
+        taskService.setVariables("15004", variables);
+    }
+
+    @Test
+    public void getVariables(){
+        TaskService taskService = processEngine.getTaskService();
+        Map<String, Object> variables = taskService.getVariables("20002");
+        System.out.println(variables.toString());
+    }
+
+    @Test
+    public void handleVariables(){
+        RuntimeService runtimeService = processEngine.getRuntimeService();
+        TaskService taskService = processEngine.getTaskService();
+
+    }
 }
