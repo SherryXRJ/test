@@ -11,10 +11,10 @@ import javax.jms.TextMessage;
 public class MqCustomer {
 
     //  queue
-    private final String DESTINATION_TEST_QUEUE = "sherry.queue.test";
+    private final static String DESTINATION_TEST_QUEUE = "sherry.queue.test";
 
     //  topic
-    private final String DESTINATION_TEST_TOPIC = "sherry.topic.test";
+    private final static String DESTINATION_TEST_TOPIC = "sherry.topic.test";
 
     @JmsListener(destination = DESTINATION_TEST_QUEUE, containerFactory = "queueListenerContainerFactory")
     public void queue(Message message) throws JMSException {

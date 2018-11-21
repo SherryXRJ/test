@@ -17,12 +17,12 @@ import org.springframework.stereotype.Component;
 public class RabbitMQTopicCustomer {
 
     @RabbitListener(queues = TopicCustomerConfig.TOPIC_QUEUE_1)
-    public void TopicCustomer1(String message){
+    public void topicCustomer1(String message){
         System.out.println(TopicCustomerConfig.TOPIC_QUEUE_1 + " receive :" + message);
     }
 
     @RabbitListener(queues = TopicCustomerConfig.TOPIC_QUEUE_2)
-    public void TopicCustomer2(String message){
+    public void topicCustomer2(String message){
         System.out.println(TopicCustomerConfig.TOPIC_QUEUE_2 + " receive :" + message);
     }
 
