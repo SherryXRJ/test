@@ -30,7 +30,7 @@ public class ProducerController {
     @RequestMapping("/get")
     @ResponseBody
     public String get(){
-        return shardedJedis.get("");
+        return shardedJedis.get("k1");
     }
 
     @GetMapping("/publishQueue")

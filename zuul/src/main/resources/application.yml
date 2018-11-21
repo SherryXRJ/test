@@ -10,8 +10,10 @@ eureka:
     register-with-eureka: true
 
 zuul:
-  prefix: /sherry
-  ignored-services: "*"
+  routes:
+    test_producer:
+      path: /producer/**
+      serviceId: test-producer
 
 
 
