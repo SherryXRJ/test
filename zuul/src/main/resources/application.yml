@@ -10,6 +10,7 @@ eureka:
     register-with-eureka: true
 
 zuul:
+  ignoredServices: '*'
   routes:
     test_producer:
       path: /producer/**
