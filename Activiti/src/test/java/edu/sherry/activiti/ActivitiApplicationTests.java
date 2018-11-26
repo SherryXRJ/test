@@ -1,9 +1,7 @@
 package edu.sherry.activiti;
 
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.ProcessEngines;
-import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
+import org.activiti.engine.*;
+import org.activiti.engine.history.HistoricActivityInstance;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.DeploymentQuery;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -34,8 +32,8 @@ public class ActivitiApplicationTests {
 	@Test
 	public void deploy() {
         processEngine.getRepositoryService().createDeployment()
-        .name("Parallel Gateway Demo")
-        .addClasspathResource("diagrams/parallelGateway.bpmn")
+        .name("listener")
+        .addClasspathResource("diagrams/listener.bpmn")
         .deploy();
     }
     /**
@@ -43,11 +41,8 @@ public class ActivitiApplicationTests {
      */
     @Test
     public void start(){
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("userId1", "100");
-        variables.put("userId2", "200");
         ProcessInstance instance = processEngine.getRuntimeService()
-                .startProcessInstanceById("ParallelGatewayDemo:1:32504", variables);
+                .startProcessInstanceById("myProcess_1:1:25004");
         System.out.println(instance.getId());
         System.out.println(instance.getProcessDefinitionId());
     }
@@ -99,8 +94,11 @@ public class ActivitiApplicationTests {
     }
 
     @Test
-    public void handleVariables(){
-        RuntimeService runtimeService = processEngine.getRuntimeService();
-        TaskService taskService = processEngine.getTaskService();
+    public void queryHistory(){
+        HistoryService historyService = processEngine.getHistoryService();
+        List<HistoricActivityInstance> list = historyService.createHistoricActivityInstanceQuery()
+                .processInstanceId("2501")
+                .list();
+        list.forEach(history -> System.out.println(history.getActivityName()));
     }
 }
