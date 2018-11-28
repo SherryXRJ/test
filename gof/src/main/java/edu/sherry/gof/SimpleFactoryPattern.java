@@ -21,7 +21,7 @@ public class SimpleFactoryPattern {
     public static class ShapeFactory{
         private ShapeFactory() {}
 
-        public static Shape getShape(String shapeName, float... args){
+        static Shape getShape(String shapeName, float... args){
             Shape shape;
             switch (shapeName) {
                 case "Circle":
@@ -50,7 +50,7 @@ public class SimpleFactoryPattern {
 
         private float radius;
 
-        public Circle(float... args){
+        Circle(float... args){
             this.radius = args[0];
         }
 
@@ -67,7 +67,7 @@ public class SimpleFactoryPattern {
         private float width;
         private float length;
 
-        public Rectangle(float... args) {
+        Rectangle(float... args) {
             this.width = args[0];
             this.length = args[1];
         }
@@ -88,7 +88,7 @@ public class SimpleFactoryPattern {
 
         private float side3;
 
-        public Triangle(float... args) {
+        Triangle(float... args) {
             //  check 3 sides ...
 
             this.side1 = args[0];
