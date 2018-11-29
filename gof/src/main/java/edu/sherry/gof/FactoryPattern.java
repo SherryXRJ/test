@@ -28,7 +28,7 @@ public class FactoryPattern {
      */
     public static void main(String args[]) throws ClassNotFoundException, InstantiationException, DocumentException, IllegalAccessException {
         Logger logger;
-        LoggerFactory loggerFactory = (LoggerFactory) Dom4jUtil.getBean("/config/FactoryPatternConfig.xml");
+        LoggerFactory loggerFactory = (LoggerFactory) Dom4jUtil.getBean("loggerFactory");
 
         logger = loggerFactory.create();
         logger.error("error");
