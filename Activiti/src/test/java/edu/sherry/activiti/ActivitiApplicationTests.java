@@ -32,8 +32,8 @@ public class ActivitiApplicationTests {
 	@Test
 	public void deploy() {
         processEngine.getRepositoryService().createDeployment()
-        .name("listener")
-        .addClasspathResource("diagrams/listener.bpmn")
+        .name("subProcess.bpmn")
+        .addClasspathResource("diagrams/subProcess.bpmn")
         .deploy();
     }
     /**
@@ -41,8 +41,10 @@ public class ActivitiApplicationTests {
      */
     @Test
     public void start(){
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("type", 2);
         ProcessInstance instance = processEngine.getRuntimeService()
-                .startProcessInstanceById("myProcess_1:1:25004");
+                .startProcessInstanceByKey("subProcess", variables);
         System.out.println(instance.getId());
         System.out.println(instance.getProcessDefinitionId());
     }
@@ -65,7 +67,7 @@ public class ActivitiApplicationTests {
 
     @Test
     public void complete(){
-        processEngine.getTaskService().complete("40003");
+        processEngine.getTaskService().complete("72504");
     }
 
     @Test
@@ -100,5 +102,11 @@ public class ActivitiApplicationTests {
                 .processInstanceId("2501")
                 .list();
         list.forEach(history -> System.out.println(history.getActivityName()));
+    }
+
+    @Test
+    public void claim(){
+        processEngine.getTaskService()
+                .claim("60009", "aa");
     }
 }
