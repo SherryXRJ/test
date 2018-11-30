@@ -1,10 +1,10 @@
 package edu.sherry.gof;
 
 /**
- * 简单工厂(静态工厂)设计模式   <p>
+ * 1.简单工厂(静态工厂)设计模式   <p>
  *
  * 包含三个角色   <p>
- * 1.Factory(工厂角色)  <p>
+ * 1.LoggerFactory(工厂角色)  <p>
  * 2.Product(抽象产品角色)    <p>
  * 3.ConcreteProduct(具体产品角色)
  */
@@ -16,7 +16,7 @@ public class SimpleFactoryPattern {
     }
 
     /**
-     * Factory(工厂角色)
+     * LoggerFactory(工厂角色)
      */
     public static class ShapeFactory{
         private ShapeFactory() {}
