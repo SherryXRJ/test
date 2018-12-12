@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 创造者设计模式
+ * 3.创造者设计模式
  */
 public class BuilderPattern {
 
