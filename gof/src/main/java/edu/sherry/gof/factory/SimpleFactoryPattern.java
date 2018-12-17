@@ -1,4 +1,4 @@
-package edu.sherry.gof;
+package edu.sherry.gof.factory;
 
 /**
  * 1.简单工厂(静态工厂)设计模式   <p>

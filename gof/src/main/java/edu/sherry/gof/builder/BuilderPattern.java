@@ -1,4 +1,4 @@
-package edu.sherry.gof;
+package edu.sherry.gof.builder;
 
 import java.util.Arrays;
 import java.util.List;

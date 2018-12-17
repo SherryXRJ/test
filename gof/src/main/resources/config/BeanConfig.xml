@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <bean id="loggerFactory"
-          class="edu.sherry.gof.FactoryPattern$DatabaseLoggerLoggerFactory"/>
+          class="edu.sherry.gof.factory.FactoryPattern$DatabaseLoggerLoggerFactory"/>
 
 
 </config>

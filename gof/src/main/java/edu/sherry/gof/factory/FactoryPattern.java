@@ -1,4 +1,4 @@
-package edu.sherry.gof;
+package edu.sherry.gof.factory;
 
 import edu.sherry.gof.util.Dom4jUtil;
 import org.dom4j.DocumentException;
