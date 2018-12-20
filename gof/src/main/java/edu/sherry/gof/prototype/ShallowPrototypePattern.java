@@ -22,13 +22,15 @@ public class ShallowPrototypePattern {
         list.add(new Article("Algorithm"));
         book.setArticleList(list);
 
-        Book shallowCloeBook = book.clone();
+        Book shallowCloneBook = book.clone();
         id = 2;
-        shallowCloeBook.setId(id);
+        shallowCloneBook.setId(id);
         list.add(new Article("ln"));
-        shallowCloeBook.setArticleList(list);
-        System.out.println(book);
-        System.out.println(shallowCloeBook);
+        shallowCloneBook.setArticleList(list);
+
+        System.out.println("prototypeBook articleList hashCode : " + book.getArticleList().hashCode());
+        System.out.println("shallowCloneBook  articleList hashCode : " + shallowCloneBook.getArticleList().hashCode());
+
     }
 
 }
