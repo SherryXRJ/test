@@ -2,7 +2,6 @@ package pers.sherry.demo.testcustomer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -11,7 +10,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -20,23 +18,10 @@ import java.util.stream.Collectors;
 @ComponentScan(basePackages = "pers.sherry.demo")
 public class TestApplicationTests {
 
-    @Autowired
-    private TestDao testDao;
 
 
     @Test
     public void contextLoads() {
-        List<Book> list = Arrays.asList(new Book(1), new Book(2), new Book(3));
-        testDao.batchInsert(list);
-        list.forEach(System.out::print);
-    }
-
-    @Test
-    public void test() {
-        List<Book> list = Arrays.asList(new Book(1, 2, "a"), new Book(2, 2, "a"), new Book(2, 3, "c"), new Book(1, 5, "a"));
-        Map<String, List<Book>> collect = list.stream().collect(Collectors.groupingBy(Book::getGroup));
-        System.out.println(collect);
-
     }
 
     @Test
