@@ -11,7 +11,7 @@
 	<description>Demo project for test_customer</description>
 
 	<parent>
-		<groupId>edu.sherry.demo</groupId>
+		<groupId>pers.sherry.demo</groupId>
 		<artifactId>common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../common/pom.xml</relativePath>
@@ -58,7 +58,7 @@
             <scope>runtime</scope>
         </dependency>
 		<dependency>
-			<groupId>edu.sherry.demo</groupId>
+			<groupId>pers.sherry.demo</groupId>
 			<artifactId>common</artifactId>
 		</dependency>
 	</dependencies>

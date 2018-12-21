@@ -11,7 +11,7 @@
 	<description>Common</description>
 
 	<parent>
-		<groupId>edu.sherry.demo</groupId>
+		<groupId>pers.sherry.demo</groupId>
 		<artifactId>base</artifactId>
 		<version>1.0-SNAPSHOT</version>
         <relativePath>../base/pom.xml</relativePath>
