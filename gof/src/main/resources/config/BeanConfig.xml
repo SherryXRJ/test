@@ -3,5 +3,8 @@
     <bean id="loggerFactory"
           class="pers.sherry.gof.factory.FactoryPattern$DatabaseLoggerLoggerFactory"/>
 
+    <!--<bean id="brush" class="pers.sherry.gof.bridge.refined.SmallBrush"/>-->
+
+    <bean id="color" class="pers.sherry.gof.bridge.concreteimplementor.Green"/>
 
 </config>
