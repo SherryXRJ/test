@@ -1,8 +1,9 @@
-package pers.sherry.gof.facade.normal.facade;
+package pers.sherry.gof.facade.facade;
 
-import pers.sherry.gof.facade.normal.subsystem.Cook;
-import pers.sherry.gof.facade.normal.subsystem.Purchase;
-import pers.sherry.gof.facade.normal.subsystem.Wash;
+import pers.sherry.gof.facade.subsystem.Cook;
+import pers.sherry.gof.facade.subsystem.Purchase;
+import pers.sherry.gof.facade.subsystem.Wash;
+
 
 /**
  * Facade - 外观(门面)

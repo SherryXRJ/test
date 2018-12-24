@@ -1,6 +1,6 @@
-package pers.sherry.gof.facade.normal;
+package pers.sherry.gof.facade;
 
-import pers.sherry.gof.facade.normal.facade.CookDinnerFacade;
+import pers.sherry.gof.facade.facade.CookDinnerFacade;
 
 /**
  * 10. Facade Pattern 外观模式(门面模式)

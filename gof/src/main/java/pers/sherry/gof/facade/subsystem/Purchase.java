@@ -1,4 +1,4 @@
-package pers.sherry.gof.facade.normal.subsystem;
+package pers.sherry.gof.facade.subsystem;
 
 /**
  * Subsystem
