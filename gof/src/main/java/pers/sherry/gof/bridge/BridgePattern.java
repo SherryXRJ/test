@@ -12,5 +12,7 @@ public class BridgePattern {
 
     public static void main(String[] args){
         Color color = (Color) Dom4jUtil.getBean("color");
+        Brush brush = new LargeBrush(color);
+        brush.paint(new Image("dog"));
     }
 }
