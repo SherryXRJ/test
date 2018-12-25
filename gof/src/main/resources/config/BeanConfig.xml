@@ -7,4 +7,5 @@
 
     <bean id="color" class="pers.sherry.gof.bridge.concreteimplementor.Green"/>
 
+    <bean id="staticProxy" class="pers.sherry.gof.proxy.staticproxy.proxy.ProxySearcher"/>
 </config>
