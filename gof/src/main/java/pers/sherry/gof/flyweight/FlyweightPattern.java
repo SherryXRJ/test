@@ -1,6 +1,7 @@
-package pers.sherry.gof.flyweight.flyweight;
+package pers.sherry.gof.flyweight;
 
 import pers.sherry.gof.flyweight.factory.ChessmanFactory;
+import pers.sherry.gof.flyweight.flyweight.Chessman;
 import pers.sherry.gof.flyweight.flyweight.unsharedconcrete.Position;
 
 /**
