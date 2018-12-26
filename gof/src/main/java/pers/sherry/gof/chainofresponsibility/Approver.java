@@ -11,5 +11,5 @@ public abstract class Approver {
         this.successor = successor;
     }
 
-    protected abstract void handleRequest();
+    protected abstract void handleRequest(int param);
 }
