@@ -7,12 +7,27 @@ import pers.sherry.gof.mediator.mediator.AbstractChatMediator;
  */
 public abstract class AbstractChatter {
 
+    protected String name;
+
     protected AbstractChatMediator mediator;
 
-    public AbstractChatter(AbstractChatMediator mediator) {
+
+    public AbstractChatter(String name, AbstractChatMediator mediator) {
+        this.name = name;
         this.mediator = mediator;
     }
 
     public abstract void chat(String message);
 
+    public void receiver(String senderName, String message){
+        System.out.println("FROM: " + senderName + ".| " + message + " | To: " + name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

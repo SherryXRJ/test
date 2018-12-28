@@ -10,6 +10,17 @@ import java.util.Set;
  */
 public abstract class AbstractChatMediator {
 
-    private Set<AbstractChatter> chatters = new HashSet<>();
+    protected Set<AbstractChatter> chatters = new HashSet<>();
 
+    public abstract void notify(AbstractChatter sender, String message);
+
+    public void register(AbstractChatter chatter) {
+        chatters.add(chatter);
+    }
+
+    public void register(AbstractChatter... chatters) {
+        for (AbstractChatter c : chatters) {
+            register(c);
+        }
+    }
 }

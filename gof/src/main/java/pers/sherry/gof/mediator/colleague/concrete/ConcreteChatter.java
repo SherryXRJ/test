@@ -8,12 +8,12 @@ import pers.sherry.gof.mediator.mediator.AbstractChatMediator;
  */
 public class ConcreteChatter extends AbstractChatter {
 
-    public ConcreteChatter(AbstractChatMediator mediator) {
-        super(mediator);
+    public ConcreteChatter(String name, AbstractChatMediator mediator) {
+        super(name, mediator);
     }
 
     @Override
     public void chat(String message) {
-
+        mediator.notify(this, message);
     }
 }
