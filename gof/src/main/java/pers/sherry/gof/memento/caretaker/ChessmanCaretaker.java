@@ -2,18 +2,20 @@ package pers.sherry.gof.memento.caretaker;
 
 import pers.sherry.gof.memento.memento.ChessmanMemento;
 
+import java.util.Stack;
+
 /**
  * Caretaker - 负责人
  */
 public class ChessmanCaretaker {
 
-    private ChessmanMemento memento;
+    private Stack<ChessmanMemento> mementos = new Stack<>();
 
-    public ChessmanMemento getMemento() {
-        return memento;
+    public void addMemento(ChessmanMemento memento) {
+        mementos.push(memento);
     }
 
-    public void setMemento(ChessmanMemento memento) {
-        this.memento = memento;
+    public ChessmanMemento getMemento() {
+        return mementos.pop();
     }
 }
