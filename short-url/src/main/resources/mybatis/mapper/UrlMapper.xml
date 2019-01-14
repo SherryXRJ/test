@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.sherry.dao.UrlDao">
+
+    <!-- 查询满足条件的链接数量 -->
+    <select id="queryUrlCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM url
+        <where>
+            <if test="longUrl != null">
+                long_url = ${longUrl}
+            </if>
+            <if test="shortUrl != null">
+                short_url = ${shortUrl}
+            </if>
+        </where>
+    </select>
+</mapper>
