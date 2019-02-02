@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <bean id="loggerFactory"
+          class="pers.sherry.gof.factory.FactoryPattern$DatabaseLoggerLoggerFactory"/>
+
+    <!--<bean id="brush" class="pers.sherry.gof.bridge.refined.SmallBrush"/>-->
+
+    <bean id="color" class="pers.sherry.gof.bridge.concreteimplementor.Green"/>
+
+    <bean id="staticProxy" class="pers.sherry.gof.proxy.staticproxy.proxy.ProxySearcher"/>
+</config>
